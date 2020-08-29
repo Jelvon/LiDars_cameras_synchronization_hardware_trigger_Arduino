@@ -1,7 +1,7 @@
 # Lidars_cameras_synchronization_hardware_trigger
 How it works:
 
-![image](http://github.com/Lidars_cameras_synchronization_hardware_trigger/image/trigger_structure.png)
+![image](http://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/image/trigger_structure.png)
 
 Lidar version:https://www.hesaitech.com/en/Pandar40P
 
