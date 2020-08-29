@@ -40,24 +40,21 @@ sudo apt-get install linuxptp net-tools ethtool
 ```
 ifconfig
 ```
-![image]
-(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/1.png)
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/1.png)
 
 3.check if the NIC would support hardware/software ptp
 
 ```
 Ethtool -T enp0s3`
 ```
-![image]
-(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/2.png)
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/2.png)
 
 4.activate ptp master(car pc) here
 
 ```
 sudo ptp4l -A -2 -S -m -i enp0s3`
 ```
-![image]
-(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/3.png)
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/3.png)
 
 so car pc ptp configuration has been finished.
 
@@ -102,8 +99,7 @@ hint:when you see the screen output is like the follwing picture, the ptp slaves
 ptp4l -A -2 -S -m -i eth1
 
 ```
-![image]
-(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/4.png)
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/4.png)
 
 ## Yun Linux generate PPS for MCU
 1.Yun does not support generating PPS using kernel,so we can only generate PPS in the userspace.
@@ -273,8 +269,7 @@ more details please refer to:
 https://roslibpy.readthedocs.io/en/latest/index.html
 ```
 ## When you have memory crash problem in the opkg install step...
-![image]
-(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/6.png)
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/6.png)
 try this:
 ```
 dd if=/dev/zero of=/swapfile bs=1024 count=524288
@@ -291,3 +286,6 @@ mkswap /swapfile
 ```
 swapon /swapfile
 ```
+### cabling between cameras and arduino yun
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/cidclip_image007.png)
+
