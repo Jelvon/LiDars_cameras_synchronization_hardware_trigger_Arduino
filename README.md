@@ -1,10 +1,13 @@
 # Lidars_cameras_synchronization_hardware_trigger
 How it works:
 
+Lidar version:https://www.hesaitech.com/en/Pandar40P
+Camera version:https://en.ids-imaging.com/store/ui-3160cp-rev-2-1.html
+
 Car PC: PTP master
 LiDars: PTP slave
-Arduino: PTP slave
-Every time the Arudino is synchronized with the PTP network, it would generate a pps signal to its MCU and 20 trigger signals would be generated to trigger the cameras and meanwhile the Lidars have already been triggered by the PTP signal.
+Arduino Yun: PTP slave
+Every time the Arudino is synchronized with the PTP network, it would generate a pps signal to its MCU and 20/random trigger signals would be generated to trigger the cameras and meanwhile the Lidars have already been triggered by the PTP signal.
 
 Hardware prerequisite:
 Lidar is PTP enabled.
