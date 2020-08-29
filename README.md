@@ -14,4 +14,4 @@ If camera is GigE version which is PTP enabled, we don’t need the Arduino.
 About GNSS/GPS
 
 GPS could provide accurate time resource here, but in our application case it is not essential, we only need relative same time between sensors and PC.
-GPS could be used to trigged LiDar and Arduino also.
+GPS could be used to trigger LiDar and Arduino also.
