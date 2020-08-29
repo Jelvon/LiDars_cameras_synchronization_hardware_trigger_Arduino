@@ -3,6 +3,11 @@ How it works:
 
 ![image](http://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/image/trigger_structure.png)
 
+
+![image](http://github.com/itmyhome2013/readme_add_pic/raw/master/images/nongshalie.jpg)
+
+
+
 Lidar version:https://www.hesaitech.com/en/Pandar40P
 
 Camera version:https://en.ids-imaging.com/store/ui-3160cp-rev-2-1.html
