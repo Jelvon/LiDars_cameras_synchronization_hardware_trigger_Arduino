@@ -27,7 +27,7 @@ GPS could provide accurate time resource here, but in our application case it is
 GPS could be used to trigger LiDar and Arduino also.
 ## Lidar configuration
 Turn the ptp trigger mode on in the web page control panel
-
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/0.png)
 ## PC configuration
 1.install linuxptp
 
