@@ -261,8 +261,7 @@ Hint: this is the case in the arduino if you want to run the python file, conduc
 python trigger-gen.py
 ```
 then then you will see this and it proves that you are succussful.
-![image]
-(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/5.png)
+![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/5.png)
 
 more details please refer to:
 ```
