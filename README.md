@@ -25,6 +25,8 @@ If camera is GigE version （support IEEE 1588/PTP） which is PTP enabled, we d
 About GNSS/GPS:
 GPS could provide accurate time resource here, but in our application case it is not essential, we only need relative same time between sensors and PC.
 GPS could be used to trigger LiDar and Arduino also.
+## Lidar configuration
+Turn the ptp trigger mode on in the web page control panel
 
 ## PC configuration
 1.install linuxptp
@@ -38,18 +40,25 @@ sudo apt-get install linuxptp net-tools ethtool
 ```
 ifconfig
 ```
+![image]
+(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/1.png)
 
 3.check if the NIC would support hardware/software ptp
 
 ```
 Ethtool -T enp0s3`
 ```
+![image]
+(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/2.png)
 
 4.activate ptp master(car pc) here
 
 ```
 sudo ptp4l -A -2 -S -m -i enp0s3`
 ```
+![image]
+(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/3.png)
+
 so car pc ptp configuration has been finished.
 
 ## Arduino Yun Configuration
@@ -93,6 +102,8 @@ hint:when you see the screen output is like the follwing picture, the ptp slaves
 ptp4l -A -2 -S -m -i eth1
 
 ```
+![image]
+(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/4.png)
 
 ## Yun Linux generate PPS for MCU
 1.Yun does not support generating PPS using kernel,so we can only generate PPS in the userspace.
@@ -119,7 +130,7 @@ mkdir /root/a_time
 ```
 cd /root/a_time
 ```
-2.use scp copy the a_time.c into the /root/a_time, continue to conduct the following command to compile the c file:
+2.use scp copy the a_time.c(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/no_ros_message_version_file/a_time.c) into the /root/a_time, continue to conduct the following command to compile the c file:
 ```
 gcc a_time.c -o get_atime
 ```
@@ -134,16 +145,26 @@ in the file /etc/rc.local,before the exit0, add:
 
 ```
 ptp4l -A -2 -S -m -i eth1
+```
+```
 echo 1 > /sys/class/gpio/gpio21/value
+```
+```
 echo 26 > /sys/class/gpio/export
+```
+```
 echo "high" > /sys/class/gpio/gpio26/direction 
+```
+```
 echo 0 > /sys/class/gpio/gpio26/value
+```
+```
 /root/a_time/get_atime
 ```
 
 ## Trigger Circuit Configuration
 Now,we have to configure the triggers of the cameras
-upload the camera_trig.ino to Yun MCU through Arduino IDE
+upload the camera_trig.ino to(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/no_ros_message_version_file/camera_trig.ino) Yun MCU through Arduino IDE
 Now the program is in the N-slaves mode
 change the paramters inside to change the trigger mode
 ```c
@@ -182,7 +203,7 @@ rosrun tf2_web_republisher tf2_web_republisher
 ```
 in our Yun linux:
 
-copy the trigger-gen folder(https://cloud.ka-raceing.de/s/mkXeYHWfyTgdDTX) after uncompression into /root in Yun using scp
+copy the trigger-gen folder(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/tree/master/ros_message_version_file/trigger-gen) after uncompression into /root in Yun using scp
 
 ssh access to Yun linux and conduct:
 ```
@@ -243,11 +264,17 @@ Hint: this is the case in the arduino if you want to run the python file, conduc
 ```
 python trigger-gen.py
 ```
+then then you will see this and it proves that you are succussful.
+![image]
+(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/5.png)
+
 more details please refer to:
 ```
 https://roslibpy.readthedocs.io/en/latest/index.html
 ```
 ## When you have memory crash problem in the opkg install step...
+![image]
+(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/6.png)
 try this:
 ```
 dd if=/dev/zero of=/swapfile bs=1024 count=524288
