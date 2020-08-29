@@ -1,7 +1,10 @@
 # Lidars_cameras_synchronization_hardware_trigger
 How it works:
 
+![image](http://github.com/Lidars_cameras_synchronization_hardware_trigger/trigger_structure.png)
+
 Lidar version:https://www.hesaitech.com/en/Pandar40P
+
 Camera version:https://en.ids-imaging.com/store/ui-3160cp-rev-2-1.html
 
 Car PC: PTP master
