@@ -163,7 +163,7 @@ echo 0 > /sys/class/gpio/gpio26/value
 /root/a_time/get_atime
 ```
 
-## Trigger Circuit Configuration
+## Trigger MCU Configuration
 Now,we have to configure the triggers of the cameras
 upload the camera_trig.ino to(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/no_ros_message_version_file/camera_trig.ino) Yun MCU through Arduino IDE
 Now the program is in the N-slaves mode
@@ -244,9 +244,9 @@ TMPDIR=/mnt/sda1/pip_tmp/ pip install --cache-dir=/mnt/sda1/pip_tmp/ --build /mn
 ```
 gcc –o get_time get_time.c
 ```
-* Now we have an optimization of the structure if you have some this step
+* Now we have an optimized version of this workflow and I would recommend you to use it if you could finish and understand the above steps.
 
-* the old c file shall be dropped, we use the new c file in the folder above
+* the old c file shall be dropped, we use the new c file in the folder(https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/tree/master/ros_message_version_file) above
 
 * we use python file to send the ros message and also invoke the c file
 
@@ -288,6 +288,6 @@ mkswap /swapfile
 ```
 swapon /swapfile
 ```
-### cabling between cameras and arduino yun
+## cabling between cameras and arduino yun
 ![image](https://github.com/Jelvon/Lidars_cameras_synchronization_hardware_trigger/blob/master/image/cidclip_image007.png)
 
